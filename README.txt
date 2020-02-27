@@ -9,7 +9,7 @@ and use the order function.  This example orders 5 sandwiches:
 
 import orderSandwich
 oS = orderSandwich.orderSandwich()
-os.order(5)
+oS.order(5)
 
 Unit testing can be done with testing.py.  Just run the script in a terminal.
 
