@@ -39,9 +39,6 @@ takeBreak()
 ------------------------------------------------------------------------------
 ## TESTING ##
 
-First, load the code from orderSandwich.py.  Then, run testing.py in the 
-same environment.  All 7 tests should run without error.
-
 Tests include:
 
 1) Is time format returned as a string?
