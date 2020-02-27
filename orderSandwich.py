@@ -19,83 +19,83 @@ Each item in the schedule must contain:
     * Time (in minutes, seconds)
     * Task
     * Order number
-    
+
 sample input:
     order(2)
-    
+
 sample output:
     1. 0:00 make sandwich 1
     2. 1:00 serve sandwich 1
     3. 1:30 make sandwich 2
     4. 2:30 serve sandwich 2
-    
 """
 
-schedule = []
-sequence_number = 1
-order_number = 1
-schedule_time = 0
 
+class orderSandwich(object):
 
-def calculateTime():
-    global schedule_time
-    
-    # reset minutes and seconds every hour
-    if schedule_time >= 3600:
-        schedule_time -= 3600
-    
-    # calculate minutes and seconds
-    minutes = schedule_time // 60
-    seconds = schedule_time % 60
+    def __init__(self):
+        self.schedule = []
+        self.sequence_number = 1
+        self.order_number = 1
+        self.schedule_time = 0
 
-    # create output padding
-    min_string = str(minutes).zfill(2)
-    sec_string = str(seconds).zfill(2)
-    
-    return min_string + ":" + sec_string
-    
-def makeSandwich():
-    global schedule_time, order_number, sequence_number
-    
-    # add the item to the schedule
-    item = str(sequence_number) + ". " + calculateTime() + " make sandwich " + str(order_number)
-    schedule.append(item)
-    
-    # update values for next item
-    schedule_time += 60
-    order_number += 1
-    sequence_number += 1
-    
-def serveSandwich():
-    global schedule_time, order_number, sequence_number
-    
-    # add item to the schedule
-    item = str(sequence_number) + ". " + calculateTime() + " serve sandwich " + str(order_number)
-    schedule.append(item)
-    
-    # update values for next item
-    schedule_time += 30
-    sequence_number += 1
+    def calculateTime(self):
 
-def takeBreak():
-    global schedule_time, order_number, sequence_number
-    
-    # record break time
-    item = str(sequence_number) + ". " + calculateTime() + " take a well-earned break!"
-    schedule.append(item)
-    
-    # update values for next item
-    schedule_time += 60
-    sequence_number += 1
-    
-def outputSchedule():
-    for item in schedule:
-        print(item)
-    
-def order(n=1):
-    for sandwich in range(n):
-        makeSandwich()
-        serveSandwich()
-    takeBreak()
-    outputSchedule()
-    
+        # reset minutes and seconds every hour
+        if self.schedule_time >= 3600:
+            self.schedule_time -= 3600
+
+        # calculate minutes and seconds
+        minutes = self.schedule_time // 60
+        seconds = self.schedule_time % 60
+
+        # create output padding
+        min_string = str(minutes).zfill(2)
+        sec_string = str(seconds).zfill(2)
+
+        return min_string + ":" + sec_string
+
+    def makeSandwich(self):
+
+        # add the item to the schedule
+        item = str(self.sequence_number) + ". " + self.calculateTime()\
+            + " make sandwich " + str(self.order_number)
+        self.schedule.append(item)
+
+        # update values for next item
+        self.schedule_time += 60
+        self.order_number += 1
+        self.sequence_number += 1
+
+    def serveSandwich(self):
+
+        # add item to the schedule
+        item = str(self.sequence_number) + ". " + self.calculateTime()\
+            + " serve sandwich " + str(self.order_number)
+        self.schedule.append(item)
+
+        # update values for next item
+        self.schedule_time += 30
+        self.sequence_number += 1
+
+    def takeBreak(self):
+
+        # record break time
+        item = str(self.sequence_number) + ". " + self.calculateTime()\
+            + " take a well-earned break!"
+        self.schedule.append(item)
+
+        # update values for next item
+        self.schedule_time += 60
+        self.sequence_number += 1
+
+    def outputSchedule(self):
+        for item in self.schedule:
+            print(item)
+
+    def order(self, n=1):
+        for sandwich in range(n):
+            self.makeSandwich()
+            self.serveSandwich()
+        self.takeBreak()
+        self.outputSchedule()
