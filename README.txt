@@ -1,14 +1,17 @@
 ## SETUP AND USAGE ##
 
-The library order.py, found in this folder, is a short script to 
+The class orderSandwich.py, found in this folder, is a short script to 
 generate a fast food work schedule.  It builds the schedule from the
 number of sandwiches ordered, and it outputs the updated schedule.
 
-In order to use this code, you must run it inside a terminal with iPython
-or inside a Jupyter Notebook.  The script was written in Python 3.6.9, and
-it requires no special libraries.
+In order to use this code, you should create an instance of the class,
+and use the order function.  This example orders 5 sandwiches:
 
+import orderSandwich
+oS = orderSandwich.orderSandwich()
+os.order(5)
 
+Unit testing can be done with testing.py.  Just run the script in a terminal.
 
 ------------------------------------------------------------------------------
 ## FUNCTIONS ##
